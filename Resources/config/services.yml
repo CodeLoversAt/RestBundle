@@ -1,0 +1,12 @@
+parameters:
+    code_lovers_rest.handler.json.class: CodeLovers\RestBundle\Handler\JsonHandler
+
+services:
+    code_lovers_rest.handler.json:
+        class: %code_lovers_rest.handler.json.class%
+        arguments: [@jms_serializer]
+
+    code_lovers_rest.view_handler:
+        parent: fos_rest.view_handler.default
+        calls:
+            - ['registerHandler', ['json', ['@code_lovers_rest.handler.json', 'createResponse']]]

@@ -1,0 +1,3 @@
+code_lovers_rest_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: CodeLoversRestBundle:Default:index }
